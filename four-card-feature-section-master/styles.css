@@ -1,0 +1,176 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --red: hsl(0, 78%, 62%);
+    --cyan: hsl(180, 62%, 55%);
+    --orange: hsl(34, 97%, 64%);
+    --blue: hsl(212, 86%, 64%);
+    --grey-500: hsl(234, 12%, 34%);
+    --grey-400: hsl(212, 6%, 44%);
+    --white: hsl(0, 0%, 100%); 
+    --fw-light: 200;
+    --fw-regular: 400;
+    --fw-semibold: 600;
+    
+}
+
+
+body{
+    padding: 0 2.5rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+h1 {
+    font-size: 1.5rem;
+    text-align: center;
+    /*font-family: 'Poppins';*/
+    font-weight: var(--fw-light);
+    color: var(--grey-500);
+    margin-bottom: 1rem;
+    margin-top: 3rem;
+}
+
+/* Force the line break and make it bold */
+h1 .bold {
+  display: block; 
+  font-weight: var(--fw-semibold);
+}
+
+body > p {
+    line-height: 1.5;
+    font-size: 0.93rem;
+    text-align:center;
+    /*font-family: 'Poppins';*/
+    margin-bottom: 3rem;
+    color: var(--grey-400);
+}
+
+
+.supervisor, .team-builder, .karma, .calculator{
+    font-size: 0.9rem;
+    color: var(--grey-500);
+}
+
+.supervisor p, .team-builder p, .karma p, .calculator p{
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.8rem;
+  color: var(--grey-400);
+  
+}
+
+.supervisor-box, .team-builder-box, .karma-box, .calculator-box{
+    border: 10px solid var(--white);
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    margin: 0 auto;
+    padding: 1.4rem 1.8rem 8rem 1.7rem;
+    position: relative;
+    margin-bottom: 3rem;
+    
+
+}
+
+/* Creates the trapezoid shape */
+.supervisor-box::before, 
+.team-builder-box::before, 
+.karma-box::before, 
+.calculator-box::before {
+    content: "";
+    position: absolute;
+    top: -9px;
+    left: -10px;
+    right: -9px;
+    border-left: 6px solid transparent;  /* Controls the slant angle */
+    border-right: 6px solid transparent; /* Controls the slant angle */
+    box-sizing: border-box;
+}
+
+/* Colors the individual bars */
+.supervisor-box::before   { border-bottom: 4px solid var(--cyan); }
+.team-builder-box::before { border-bottom: 4px solid var(--red); }
+.karma-box::before        { border-bottom: 4px solid var(--orange); }
+.calculator-box::before   { border-bottom: 4px solid var(--blue); }
+
+
+.supervisor-box::after, .team-builder-box::after, .karma-box::after, .calculator-box::after{
+    content: "";
+    display: inline-block;
+    top: 7.5rem;
+    right: 2rem;
+    width: 60px;      
+    height: 65px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    
+}
+
+.supervisor-box::after{
+    background-image: url('images/icon-supervisor.svg');
+}
+
+.team-builder-box::after{
+    background-image: url('images/icon-team-builder.svg');
+}
+
+.karma-box::after{
+    background-image: url('images/icon-karma.svg');
+}
+
+.calculator-box::after{
+    background-image: url('images/icon-calculator.svg');
+}
+
+@media (min-width: 1440px){
+    .container{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        align-items: center;
+        gap: 2rem;           /* Fixes missing and uneven gaps */
+        max-width: 1110px;   /* Stops the cards from stretching across the whole screen */
+        margin: 0 auto;
+    }
+
+    .supervisor-box{
+        grid-column: 1; 
+        grid-row: 1 / span 2;
+    }
+
+    .team-builder-box{
+        grid-column: 2; 
+        grid-row: 1;
+        
+    }
+
+    .karma-box{
+        grid-column: 2;
+        grid-row: 2;
+    }
+
+    .calculator-box{
+        grid-column: 3;
+        grid-row: 1 / span 2
+    }
+
+    .supervisor-box, .team-builder-box, .karma-box, .calculator-box {
+        margin: 0 0 1rem 0; 
+    }
+
+    body > p {
+    line-height: 1.5;
+    font-size: 1rem;
+    text-align:center;
+    /*font-family: 'Poppins';*/
+    margin-bottom: 3rem;
+    color: var(--grey-400);
+    max-width: 55ch;
+    margin: 0 auto 3rem auto;
+    transform: translateX(85px);
+    }
+
+    
+}
